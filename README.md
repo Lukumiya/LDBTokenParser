@@ -11,7 +11,7 @@
 
 ```sh
 $ git clone https://github.com/Lukumiya/LDBTokenParser.git
-$ cd LDBTokenScrapper
+$ cd LDBTokenParser
 $ dotnet build . -o ./build
 ```
 Затем у вас в папке `build` будет exe файл, это и будет результатом сборки
