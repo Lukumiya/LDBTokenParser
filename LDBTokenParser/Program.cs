@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using LDBTokenParser.Association;
+using LDBTokenParser.Checker;
 
 namespace LDBTokenParser
 {
@@ -34,13 +35,33 @@ namespace LDBTokenParser
                 {
                     foreach (var match in matches)
                     {
-                        Console.WriteLine($"Найден токен: {match}");
+                  
+                        if (matches.Count <= 10)
+                        {
+                            var response = TokenChecker.CheckToken(match.ToString()).GetAwaiter().GetResult(); // Остановите синхронизацию 
+                            if (!response.Valid)
+                            {
+                                Console.WriteLine($"Токен {match} невалидный.");
+                                continue;
+                            }
+                            
+                            Console.WriteLine("Информация о токене: \n" +
+                                              $"Ник и тэг: {response.Me.Username}#{response.Me.Discriminator}\n" +
+                                              $"Email: {response.Me.Email} ({(response.Me.Verified ? "" : "Не ")}Верифицирована)\n" +
+                                              $"Привязаные карты/PayPal: {response.PaymentSources.Count}\n" +
+                                              $"=============================================");
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Найден токен: {match}");
+                        }
                     }
 
                     break;
                 }
             }
-
+            Console.WriteLine("Ну это все.");
             Console.ReadLine();
         }
     }
