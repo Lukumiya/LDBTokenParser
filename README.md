@@ -1,8 +1,8 @@
-# LDBTokenScrapper
+# LDBTokenParser
 Простая утилита для парсинга Discord токенов с LDB файлов.
 
 # Использование
-Качаем EXE файл с [Release](https://github.com/Lukumiya/LdbTokenScrapper/releases) вкладки и запускаем 1 раз!
+Качаем EXE файл с [Release](https://github.com/Lukumiya/LDBTokenParser/releases) вкладки и запускаем 1 раз!
 ## ВАЖНО
 Не удаляйте и не перемещайте EXE файл, если вы его переместили - запустите заново, что бы он обновил пути
 
@@ -10,7 +10,7 @@
 Для этого нужно будет скачать .NET SDK и git, затем прописать эти команды:
 
 ```sh
-$ git clone https://github.com/Lukumiya/LDBTokenScrapper.git
+$ git clone https://github.com/Lukumiya/LDBTokenParser.git
 $ cd LDBTokenScrapper
 $ dotnet build . -o ./build
 ```
